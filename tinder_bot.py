@@ -2,7 +2,6 @@ from selenium import webdriver
 from time import sleep
 import random
 from getpass import getpass
-from login import username, password
 
 class TinderBot():
     def __init__(self):
@@ -11,7 +10,7 @@ class TinderBot():
     def login(self):
         self.driver.get('https://tinder.com')
 
-        sleep(5) #bc fuse wifi is sht
+        sleep(3) 
         #login button
         btn_login = self.driver.find_element_by_xpath('/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div/div/header/div/div[2]/div[2]/button')
         btn_login.click()
@@ -21,7 +20,7 @@ class TinderBot():
         btn_fb = self.driver.find_element_by_xpath('/html/body/div[2]/div/div/div[1]/div/div[3]/span/div[2]/button')
         btn_fb.click()
         
-        sleep(2)
+        sleep(3)
         #store base/Tinder window[0]
         window_base = self.driver.window_handles[0] 
         #focus switched to Facebook popup window
@@ -45,14 +44,14 @@ class TinderBot():
         #click login
         btn_login = self.driver.find_element_by_xpath('//*[@id="u_0_0"]')
         btn_login.click()
-        sleep(3)
+        sleep(2)
         #previously logged in
         btn_ok = self.driver.find_element_by_xpath('/html/body/div/div/div/form/div[3]/div/table/tbody/tr/td[2]/button[2]')
         btn_ok.click()
 
         self.driver.switch_to.window(window_base)
 
-        sleep(3)
+        sleep(1)
         #location popup
         btn_allow = self.driver.find_element_by_xpath('/html/body/div[2]/div/div/div/div/div[3]/button[1]')
         btn_allow.click()
